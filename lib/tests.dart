@@ -11,6 +11,9 @@ return result.toInt();
 }
 
 bool isPalindrome(String text) {
+  String cleanText = text.replaceAll(RegExp(r'[^a-zA-Z0-9]'), '').toLowerCase();
+  String reversedText = cleanText.split('').reversed.join('');
+  return cleanText == reversedText;
   return false;
 }
 
