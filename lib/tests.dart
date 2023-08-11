@@ -5,9 +5,10 @@ int factorial(int n) {
     return n * factorial(n - 1);
   }
 }
+
 int divideFactorials(int numerator, int denominator) {
-double result = factorial(numerator) / factorial(denominator);
-return result.toInt(); 
+  double result = factorial(numerator) / factorial(denominator);
+  return result.toInt();
 }
 
 bool isPalindrome(String text) {
@@ -18,11 +19,10 @@ bool isPalindrome(String text) {
 }
 
 List<int> sort(List<int> list) {
-  return [];
+  list.sort();
+  return list;
 }
 
 List<int> sieveOfEratosthenes(int limit) {
   return [];
 }
-
-
