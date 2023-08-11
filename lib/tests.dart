@@ -12,7 +12,7 @@ bool isPalindrome(String text){
 }
 
 List<int> sort(List<int> list){
-  sort(list);
+  list.sort;
   return list;
 }
 
