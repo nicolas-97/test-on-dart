@@ -1,17 +1,17 @@
 int divideFactorials(int numerator, int denominator) {
   int resta = numerator - denominator;
-  int equals = 1;
+  int acum = 1;
 
   if (numerator == denominator) {
-    equals = numerator;
+    acum = numerator;
   }
   if (numerator > denominator) {
     for (var i = 1; i <= resta; i++) {
-      equals *= numerator;
+      acum *= numerator;
       numerator--;
     }
   }
-  return equals;
+  return acum;
 }
 
 bool isPalindrome(String text) {
@@ -33,4 +33,8 @@ List<int> sort(List<int> list) {
 
 List<int> sieveOfEratosthenes(int limit) {
   return [];
+}
+
+void main() {
+  print(isPalindrome("oso"));
 }
