@@ -1,5 +1,10 @@
+double factorial(int num){
+    return num*factorial(num-1);
+}
+
 int divideFactorials(int numerator, int denominator) {
-  return 1;
+  int div = factorial(numerator)~/factorial(denominator);
+  return div;
 }
 
 bool isPalindrome(String text){
@@ -7,7 +12,8 @@ bool isPalindrome(String text){
 }
 
 List<int> sort(List<int> list){
-  return [];
+  sort(list);
+  return list;
 }
 
 List<int> sieveOfEratosthenes(int limit) {
