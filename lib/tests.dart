@@ -1,15 +1,19 @@
 int divideFactorials(int numerator, int denominator) {
-  return 1;
+  int result = 1;
+  for (int i = numerator; i > denominator; i--) {
+    result *= i;
+  }
+  return result;
 }
 
-bool isPalindrome(String text){
+bool isPalindrome(String text) {
   return false;
 }
 
-List<int> sort(List<int> list){
+List<int> sort(List<int> list) {
   return [];
 }
 
 List<int> sieveOfEratosthenes(int limit) {
-  return  [];
+  return [];
 }
