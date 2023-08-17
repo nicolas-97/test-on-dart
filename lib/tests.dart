@@ -1,19 +1,10 @@
 import 'package:diacritic/diacritic.dart';
 
 int divideFactorials(int numerator, int denominator) {
-
-  int aux1 = denominator+1;
-  int aux2 = denominator;
-  int sol = 0;
-
-  for(int i = numerator; i < denominator; i++){
-    aux1 += 1;
-    aux2 = aux1 * aux2;
-
+  int sol = 1;
+  for(int i = denominator; i < numerator; i++){
+    sol += sol*i;
   }
-  sol = aux1;
-
-
 
   return sol;
 }
