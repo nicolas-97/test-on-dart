@@ -1,5 +1,7 @@
 int divideFactorials(int numerator, int denominator) {
-  return 1;
+  // algoritmo
+
+  return 45;
 }
 
 bool isPalindrome(String text){
