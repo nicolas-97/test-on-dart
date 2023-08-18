@@ -15,10 +15,30 @@ bool isPalindrome(String text) {
   return text == txet;
 }
 
-List<int> sort(List<int> list) {
-  return [];
+List<int> sort(List<int> list){
+  list.sort();
+  return list;
 }
 
 List<int> sieveOfEratosthenes(int limit) {
-  return [];
+  List<bool> primes = List.generate(limit + 1, (index) => true);
+  primes[0] = false;
+  primes[1] = false;
+
+  for (int p = 2; p * p <= limit; p++) {
+    if (primes[p]) {
+      for (int i = p * p; i <= limit; i += p) {
+        primes[i] = false;
+      }
+    }
+  }
+
+  List<int> primeNumbers = [];
+  for (int i = 2; i <= limit; i++) {
+    if (primes[i]) {
+      primeNumbers.add(i);
+    }
+  }
+
+  return primeNumbers;
 }
