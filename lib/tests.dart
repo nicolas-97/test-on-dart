@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math';
 
 int divideFactorials(int numerator, int denominator) {
   var num = 1;
@@ -33,7 +34,42 @@ List<int> sort(List<int> list) {
 }
 
 List<int> sieveOfEratosthenes(int limit) {
-  return [];
+  var list = <int>[];
+  /*for (var i = 2; i <= limit; i++) {
+    if (pow(i, 2) < limit) {
+      list.add(i);
+    } else {
+      i = limit + 1;
+    }
+  }*/
+
+  if (limit <= 1) {
+    return [];
+  }
+
+  // Creamos una lista de booleanos para representar los números primos
+  var isPrime = List<bool>.filled(limit + 1, true);
+  isPrime[0] = false;
+  isPrime[1] = false;
+
+  // Marcar los números compuestos
+  for (var p = 2; p * p <= limit; p++) {
+    if (isPrime[p] == true) {
+      for (var i = p * p; i <= limit; i += p) {
+        isPrime[i] = false;
+      }
+    }
+  }
+
+  // Construir la lista de números primos
+  var primes = <int>[];
+  for (var p = 2; p <= limit; p++) {
+    if (isPrime[p]) {
+      primes.add(p);
+    }
+  }
+
+  return primes;
 }
 
 // Funcion que elimina las tildes o virgulillas
