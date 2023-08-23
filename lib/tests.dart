@@ -13,7 +13,7 @@ bool isPalindrome(String text){
     String [] x = text.split("");
     String[] z = text.split("");
     Collections.reverse(Arrays.asList(x));
-    if(a.equals(z)){
+    if(x.equals(z)){
       return true;
     }
     
