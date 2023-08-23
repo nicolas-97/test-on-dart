@@ -18,5 +18,18 @@ List<int> sort(List<int> list){
 }
 
 List<int> sieveOfEratosthenes(int limit) {
-  return  [];
+
+  List<int> numero = List.generate(limit-1, (index) => index + 2);
+  List<int> resultado = [];
+  int aux = 0;
+
+    for(int ciclo = 0; !numero.isEmpty; ciclo++){
+    aux = numero[0];
+    resultado.add(aux);
+    numero.removeWhere((item) => item%aux == 0 );
+
+  }
+
+
+  return  resultado;
 }
