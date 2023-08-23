@@ -10,6 +10,13 @@ int divideFactorials(int numerator, int denominator) {
 }
 
 bool isPalindrome(String text){
+    String [] x = text.split("");
+    String[] z = text.split("");
+    Collections.reverse(Arrays.asList(x));
+    if(a.equals(z)){
+      return true;
+    }
+    
   return false;
 }
 
