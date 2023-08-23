@@ -38,7 +38,42 @@ bool isPalindrome(String text) {
 }
 
 List<int> sort(List<int> list) {
-  return [];
+  void quickSort(List<int> vecnumeros, int inicio, int fin) {
+    if(inicio<fin){
+      //Ubicamos el numero escojido como pivote en su lugar
+      //ubicando los menores en cualquier orden a su izquierda y
+      //ubicando los mayores en cualquier orden a su derecha    
+      int posPiv=ubicarPivote(vecnumeros,inicio,fin);
+      //Ahora recursivamente se repite el proceso en las sublistas
+      //a la derecha del pivote
+      quickSort(vecnumeros,posPiv+1,fin);
+      //a la izquierda del pivote
+      quickSort(vecnumeros,inicio,posPiv-1);
+      
+    }
+    
+  }
+
+  int ubicarPivote(List<int> vecnumeros, int inicio, int fin) {
+    while (inicio<fin){
+      while (vecnumeros[fin]>=vecnumeros[inicio] && inicio<fin){
+        fin--;
+      }
+      int cambio = vecnumeros[fin];
+      vecnumeros[fin] = vecnumeros[inicio];
+      vecnumeros[inicio] = cambio;
+      while (vecnumeros[inicio]<=vecnumeros[fin] && inicio<fin){
+        inicio++;
+      }
+      cambio = vecnumeros[fin];
+      vecnumeros[fin] = vecnumeros[inicio];
+      vecnumeros[inicio] = cambio;
+    }
+    return inicio;
+  }
+  int n = list.length;
+  quickSort(list, 0, n - 1);
+  return list;
 }
 
 List<int> sieveOfEratosthenes(int limit) {
