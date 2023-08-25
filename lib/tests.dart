@@ -10,10 +10,12 @@ int factorial(int n) {
 double divisionFactorial(int numerator, int denominator) {
   // Se verifica que los números sean positivos
 
- 
+ if (numerator < 0 || denominator < 0) {
+    return 0;
+   } else {
     int fa = factorial(numerator);
     int fb = factorial(denominator);
- 
+
     if (fb == 0) {
 
       return fa / fb;
