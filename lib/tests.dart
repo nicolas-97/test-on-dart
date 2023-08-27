@@ -1,39 +1,54 @@
 int divideFactorials(int numerator, int denominator) {
-  int numerador=numerator;
-  int denominador = denominator;
-  int total1=1;
-  int total2 = 1;
+  int resultado = 1;
+  for (int i = denominator; i < numerator; i++) {
+    resultado += resultado * i;
+  }
 
-  for (int i = numerador; i > 0; i--) {
-            total1 = i*total1;
-        }
-
-
-  for (int i = denominador; i > 0; i--) {
-            total2 = i*total2;
-        }
-
-    
-    int total3 = total1~/total2;
-  return (total3);
+  return resultado;
 }
 
+bool isPalindrome(String texto) {
+  texto = texto.toLowerCase().replaceAll(" ", "");
 
-bool isPalindrome(String text){
-    String [] a = text.split("");
-    String[] b = text.split("");
-    Collections.reverse(Arrays.asList(a));
-    if(a.equals(b)){
-      return true;
+  int tamanio = texto.length;
+  for (int posicion = 0; posicion < tamanio / 2; posicion++) {
+    if (texto[posicion] != texto[tamanio - posicion - 1]) {
+      return false;
     }
-    
-  return false;
+  }
+  return true;
 }
 
-List<int> sort(List<int> list){
-  return [];
+List<int> sort(List<int> list) {
+  list.sort();
+  return list;
 }
 
 List<int> sieveOfEratosthenes(int limit) {
-  return  [];
+  // Creamos una lista de booleanos llamada "primos" donde primos[i] será verdadero si i es primo.
+  List<bool> primos = List.generate(limit + 1, (index) => true);
+  // Números 0 y 1 como no primos.
+  primos[0] = false;
+  primos[1] = false;
+
+// Iteramos a través de los números desde 2 hasta la raíz cuadrada de "limit".
+  for (int i = 2; i * i <= limit; i++) {
+    // Si i es un número primo, marcamos sus múltiplos como no primos.
+    if (primos[i]) {
+      for (int j = i * i; j <= limit; j += i) {
+        primos[j] = false;
+      }
+    }
+  }
+
+  // Construimos la lista de números primos a partir de la lista "primos".
+
+  List<int> numerosPrimos = [];
+  for (int i = 2; i <= limit; i++) {
+    if (primos[i]) {
+      numerosPrimos.add(i);
+    }
+  }
+
+  return numerosPrimos;
 }
